@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSHealthShareUsageDescription</key>
-	<string></string>
+	<string>Medali reads your step count to help track your daily activity alongside your medication routine.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

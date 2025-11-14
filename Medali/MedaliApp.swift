@@ -11,10 +11,19 @@ import SwiftUI
 struct MedaliApp: App {
     let persistenceController = PersistenceController.shared
 
+    @StateObject private var notificationService = NotificationService()
+    @StateObject private var healthKitService = HealthKitService()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(notificationService)
+                .environmentObject(healthKitService)
+                .onAppear {
+                    notificationService.requestAuthorization()
+                    healthKitService.requestAuthorization()
+                }
         }
     }
 }
