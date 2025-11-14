@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		293139C22EC722FD0071D20E /* MedicationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293139C02EC722FD0071D20E /* MedicationDetailView.swift */; };
+		293139C32EC722FD0071D20E /* MedicationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293139C12EC722FD0071D20E /* MedicationListView.swift */; };
+		29313A002EC7260E0071D20E /* AddMedicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293139FF2EC7260E0071D20E /* AddMedicationView.swift */; };
+		294180652EC7258D000E66A6 /* AddMedicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294180642EC7258D000E66A6 /* AddMedicationView.swift */; };
 		29F9BE322EC5EB3900FAACEB /* MedaliApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F9BE312EC5EB3900FAACEB /* MedaliApp.swift */; };
 		29F9BE342EC5EB3900FAACEB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F9BE332EC5EB3900FAACEB /* ContentView.swift */; };
 		29F9BE362EC5EB3900FAACEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29F9BE352EC5EB3900FAACEB /* Assets.xcassets */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		293139C02EC722FD0071D20E /* MedicationDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicationDetailView.swift; sourceTree = "<group>"; };
+		293139C12EC722FD0071D20E /* MedicationListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicationListView.swift; sourceTree = "<group>"; };
+		293139FF2EC7260E0071D20E /* AddMedicationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMedicationView.swift; sourceTree = "<group>"; };
+		294180642EC7258D000E66A6 /* AddMedicationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMedicationView.swift; sourceTree = "<group>"; };
 		29F9BE2E2EC5EB3900FAACEB /* Medali.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Medali.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29F9BE312EC5EB3900FAACEB /* MedaliApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedaliApp.swift; sourceTree = "<group>"; };
 		29F9BE332EC5EB3900FAACEB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -72,6 +80,10 @@
 				29F9BE3A2EC5EB3900FAACEB /* Persistence.swift */,
 				29F9BE4A2EC5F2AA00FAACEB /* NotificationService.swift */,
 				29F9BE4C2EC5F2AA00FAACEB /* HealthKitService.swift */,
+				293139C02EC722FD0071D20E /* MedicationDetailView.swift */,
+				294180642EC7258D000E66A6 /* AddMedicationView.swift */,
+				293139C12EC722FD0071D20E /* MedicationListView.swift */,
+				293139FF2EC7260E0071D20E /* AddMedicationView.swift */,
 				29F9BE3F2EC5EB3900FAACEB /* Info.plist */,
 				29F9BE3C2EC5EB3900FAACEB /* Medali.xcdatamodeld */,
 				29F9BE372EC5EB3900FAACEB /* Preview Content */,
@@ -168,8 +180,12 @@
 				29F9BE342EC5EB3900FAACEB /* ContentView.swift in Sources */,
 				29F9BE322EC5EB3900FAACEB /* MedaliApp.swift in Sources */,
 				29F9BE3E2EC5EB3900FAACEB /* Medali.xcdatamodeld in Sources */,
+				293139C22EC722FD0071D20E /* MedicationDetailView.swift in Sources */,
+				294180652EC7258D000E66A6 /* AddMedicationView.swift in Sources */,
 				29F9BE492EC5F2AA00FAACEB /* NotificationService.swift in Sources */,
 				29F9BE4B2EC5F2AA00FAACEB /* HealthKitService.swift in Sources */,
+				293139C32EC722FD0071D20E /* MedicationListView.swift in Sources */,
+				29313A002EC7260E0071D20E /* AddMedicationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

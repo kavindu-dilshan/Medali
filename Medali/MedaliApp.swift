@@ -16,7 +16,7 @@ struct MedaliApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MedicationListView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(notificationService)
                 .environmentObject(healthKitService)
