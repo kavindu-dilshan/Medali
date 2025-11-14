@@ -1,6 +1,15 @@
 import SwiftUI
 import CoreData
 
+struct PressScaleButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.96 : 1.0)
+            .opacity(configuration.isPressed ? 0.9 : 1.0)
+            .animation(.easeInOut(duration: 0.15), value: configuration.isPressed)
+    }
+}
+
 struct MedicationDetailView: View {
     @ObservedObject var medication: Medication
     @Environment(\.managedObjectContext) private var viewContext
@@ -30,6 +39,13 @@ struct MedicationDetailView: View {
                 }
             }
 
+            HStack(alignment: .center) {
+                Spacer()
+                AdherenceRingView(progress: vm.adherence(for: medication))
+                    .frame(width: 120, height: 120)
+                Spacer()
+            }
+
             VStack(alignment: .leading, spacing: 8) {
                 TextField("Optional note (e.g., 'Felt dizzy')", text: $noteText)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -46,6 +62,9 @@ struct MedicationDetailView: View {
                             .background(Color.green)
                             .cornerRadius(8)
                     }
+                    .buttonStyle(PressScaleButtonStyle())
+                    .accessibilityLabel("Mark dose as taken")
+                    .accessibilityHint("Logs a taken dose with optional note")
 
                     Button(action: {
                         vm.logDose(context: viewContext, medication: medication, taken: false, note: noteText.isEmpty ? nil : noteText)
@@ -58,6 +77,9 @@ struct MedicationDetailView: View {
                             .background(Color.red)
                             .cornerRadius(8)
                     }
+                    .buttonStyle(PressScaleButtonStyle())
+                    .accessibilityLabel("Skip dose")
+                    .accessibilityHint("Logs a skipped dose with optional note")
                 }
             }
 

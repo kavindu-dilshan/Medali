@@ -11,6 +11,9 @@
 		293139C32EC722FD0071D20E /* MedicationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293139C12EC722FD0071D20E /* MedicationListView.swift */; };
 		2957140B2EC72A79002F9A8F /* AddMedicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2957140A2EC72A79002F9A8F /* AddMedicationView.swift */; };
 		2957140D2EC72BC6002F9A8F /* MedicationDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2957140C2EC72BC6002F9A8F /* MedicationDetailVM.swift */; };
+		2957140F2EC72E35002F9A8F /* AdherenceRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2957140E2EC72E35002F9A8F /* AdherenceRingView.swift */; };
+		295714122EC7321F002F9A8F /* MedicationListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295714102EC7321F002F9A8F /* MedicationListVM.swift */; };
+		295714132EC7321F002F9A8F /* PillCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295714112EC7321F002F9A8F /* PillCard.swift */; };
 		29F9BE322EC5EB3900FAACEB /* MedaliApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F9BE312EC5EB3900FAACEB /* MedaliApp.swift */; };
 		29F9BE342EC5EB3900FAACEB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F9BE332EC5EB3900FAACEB /* ContentView.swift */; };
 		29F9BE362EC5EB3900FAACEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29F9BE352EC5EB3900FAACEB /* Assets.xcassets */; };
@@ -27,6 +30,9 @@
 		293139C12EC722FD0071D20E /* MedicationListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicationListView.swift; sourceTree = "<group>"; };
 		2957140A2EC72A79002F9A8F /* AddMedicationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMedicationView.swift; sourceTree = "<group>"; };
 		2957140C2EC72BC6002F9A8F /* MedicationDetailVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicationDetailVM.swift; sourceTree = "<group>"; };
+		2957140E2EC72E35002F9A8F /* AdherenceRingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdherenceRingView.swift; sourceTree = "<group>"; };
+		295714102EC7321F002F9A8F /* MedicationListVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicationListVM.swift; sourceTree = "<group>"; };
+		295714112EC7321F002F9A8F /* PillCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillCard.swift; sourceTree = "<group>"; };
 		29F9BE2E2EC5EB3900FAACEB /* Medali.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Medali.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29F9BE312EC5EB3900FAACEB /* MedaliApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedaliApp.swift; sourceTree = "<group>"; };
 		29F9BE332EC5EB3900FAACEB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -80,9 +86,12 @@
 				29F9BE3A2EC5EB3900FAACEB /* Persistence.swift */,
 				29F9BE4A2EC5F2AA00FAACEB /* NotificationService.swift */,
 				29F9BE4C2EC5F2AA00FAACEB /* HealthKitService.swift */,
+				2957140E2EC72E35002F9A8F /* AdherenceRingView.swift */,
 				2957140C2EC72BC6002F9A8F /* MedicationDetailVM.swift */,
 				293139C02EC722FD0071D20E /* MedicationDetailView.swift */,
 				293139C12EC722FD0071D20E /* MedicationListView.swift */,
+				295714102EC7321F002F9A8F /* MedicationListVM.swift */,
+				295714112EC7321F002F9A8F /* PillCard.swift */,
 				2957140A2EC72A79002F9A8F /* AddMedicationView.swift */,
 				29F9BE3F2EC5EB3900FAACEB /* Info.plist */,
 				29F9BE3C2EC5EB3900FAACEB /* Medali.xcdatamodeld */,
@@ -181,9 +190,12 @@
 				2957140D2EC72BC6002F9A8F /* MedicationDetailVM.swift in Sources */,
 				2957140B2EC72A79002F9A8F /* AddMedicationView.swift in Sources */,
 				29F9BE322EC5EB3900FAACEB /* MedaliApp.swift in Sources */,
+				295714132EC7321F002F9A8F /* PillCard.swift in Sources */,
+				2957140F2EC72E35002F9A8F /* AdherenceRingView.swift in Sources */,
 				29F9BE3E2EC5EB3900FAACEB /* Medali.xcdatamodeld in Sources */,
 				293139C22EC722FD0071D20E /* MedicationDetailView.swift in Sources */,
 				29F9BE492EC5F2AA00FAACEB /* NotificationService.swift in Sources */,
+				295714122EC7321F002F9A8F /* MedicationListVM.swift in Sources */,
 				29F9BE4B2EC5F2AA00FAACEB /* HealthKitService.swift in Sources */,
 				293139C32EC722FD0071D20E /* MedicationListView.swift in Sources */,
 			);
