@@ -4,6 +4,7 @@ import CoreData
 struct AddMedicationView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) private var presentationMode
+    @EnvironmentObject private var notificationService: NotificationService
 
     @State private var name: String = ""
     @State private var dosage: String = ""
@@ -51,16 +52,22 @@ struct AddMedicationView: View {
         med.colorHex = colorHex.trimmingCharacters(in: .whitespaces)
 
         let calendar = Calendar.current
+        var createdDoseTimes: [DoseTime] = []
         for date in times {
             let components = calendar.dateComponents([.hour, .minute], from: date)
             let doseTime = DoseTime(context: viewContext)
             doseTime.hour = Int16(components.hour ?? 0)
             doseTime.minute = Int16(components.minute ?? 0)
             doseTime.medication = med
+            createdDoseTimes.append(doseTime)
         }
 
         do {
             try viewContext.save()
+            let medicationID = med.id?.uuidString ?? UUID().uuidString
+            let medName = med.name ?? name
+            let timesTuples: [(Int, Int)] = createdDoseTimes.map { (Int($0.hour), Int($0.minute)) }
+            notificationService.scheduleDailyNotifications(for: medicationID, name: medName, times: timesTuples)
             presentationMode.wrappedValue.dismiss()
         } catch {
             print("Failed to save medication: \(error)")
@@ -72,5 +79,6 @@ struct AddMedicationView_Previews: PreviewProvider {
     static var previews: some View {
         AddMedicationView()
             .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
+            .environmentObject(NotificationService())
     }
 }
