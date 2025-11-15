@@ -21,6 +21,7 @@ struct MedaliApp: App {
                 .environmentObject(notificationService)
                 .environmentObject(healthKitService)
                 .onAppear {
+                    UNUserNotificationCenter.current().delegate = notificationService
                     notificationService.requestAuthorization()
                     healthKitService.requestAuthorization()
                 }

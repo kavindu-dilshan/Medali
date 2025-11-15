@@ -2,11 +2,13 @@ import Foundation
 import UserNotifications
 import Combine
 
-final class NotificationService: ObservableObject {
+final class NotificationService: NSObject, ObservableObject {
     private let center: UNUserNotificationCenter
 
     init(center: UNUserNotificationCenter = UNUserNotificationCenter.current()) {
         self.center = center
+        super.init()
+        self.center.delegate = self
     }
 
     func requestAuthorization() {
@@ -50,7 +52,28 @@ final class NotificationService: ObservableObject {
         center.removeDeliveredNotifications(withIdentifiers: identifiers)
     }
 
+    func debugPrintPending() {
+        center.getPendingNotificationRequests { reqs in
+            print("=== Pending Notifications: \(reqs.count) ===")
+            for r in reqs {
+                print("ID:", r.identifier, "Title:", r.content.title)
+                if let cal = r.trigger as? UNCalendarNotificationTrigger {
+                    print("Components:", cal.dateComponents)
+                }
+            }
+        }
+    }
+
     private static func identifier(medicationID: String, hour: Int, minute: Int) -> String {
         return "med.\(medicationID).\(hour)-\(minute)"
+    }
+}
+
+extension NotificationService: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // Ensure notifications are visibly shown when app is in foreground (useful for simulator testing)
+        completionHandler([.alert, .sound])
     }
 }

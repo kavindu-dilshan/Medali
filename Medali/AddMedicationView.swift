@@ -68,6 +68,7 @@ struct AddMedicationView: View {
             let medName = med.name ?? name
             let timesTuples: [(Int, Int)] = createdDoseTimes.map { (Int($0.hour), Int($0.minute)) }
             notificationService.scheduleDailyNotifications(for: medicationID, name: medName, times: timesTuples)
+            notificationService.debugPrintPending()
             presentationMode.wrappedValue.dismiss()
         } catch {
             print("Failed to save medication: \(error)")
