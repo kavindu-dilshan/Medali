@@ -14,33 +14,38 @@ struct PillCard: View {
     }
 
     var body: some View {
-        HStack(spacing: 12) {
+        HStack(spacing: 16) {
             ZStack {
                 Circle()
-                    .fill(tint.opacity(0.15))
+                    .fill(tint)
                 Image(systemName: "pills.fill")
-                    .foregroundColor(tint)
+                    .foregroundColor(.white)
+                    .font(.system(size: 20, weight: .medium))
             }
-            .frame(width: 44, height: 44)
+            .frame(width: 48, height: 48)
 
-            VStack(alignment: .leading, spacing: 2) {
+            VStack(alignment: .leading, spacing: 4) {
                 Text(name)
-                    .font(.headline)
-                if let dosage = dosage, !dosage.isEmpty {
-                    Text(dosage)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                }
-                if !timesText.isEmpty {
-                    Text(timesText)
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                }
+                    .font(.system(size: 17, weight: .semibold))
+                Text(subtitle)
+                    .font(.system(size: 13))
+                    .foregroundColor(.secondary)
             }
 
             Spacer()
+
+            VStack(alignment: .trailing, spacing: 4) {
+                if let primaryTime = primaryTime {
+                    Text(primaryTime)
+                        .font(.system(size: 15, weight: .medium))
+                        .foregroundColor(.primary)
+                }
+            }
         }
-        .padding(.vertical, 4)
+        .padding(.vertical, 14)
+        .padding(.horizontal, 16)
+        .background(Color.white)
+        .cornerRadius(24)
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(accessibilityLabel)
         .accessibilityHint("Opens medication details")
@@ -52,23 +57,34 @@ struct PillCard: View {
         if !timesText.isEmpty { parts.append("Times: \(timesText)") }
         return parts.joined(separator: ", ")
     }
+
+    private var subtitle: String {
+        if let dosage = dosage, !dosage.isEmpty {
+            return "\(dosage), Notes"
+        } else {
+            return "Dose, Notes"
+        }
+    }
+
+    private var primaryTime: String? {
+        let parts = timesText
+            .split(separator: "\u{2022}")
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+        return parts.first
+    }
 }
 
 struct PillCard_Previews: PreviewProvider {
     static var previews: some View {
         let context = PersistenceController.shared.container.viewContext
         let med = Medication(context: context)
-        med.name = "Amoxicillin"
-        med.dosage = "500 mg"
+        med.name = "Name"
+        med.dosage = "Dose"
+
         return Group {
-            PillCard(medication: med, color: .blue, timesText: "08:00 • 12:30 • 20:00")
+            PillCard(medication: med, color: .blue, timesText: "21:24 • 09:00")
                 .previewLayout(.sizeThatFits)
                 .padding()
-                .preferredColorScheme(.light)
-            PillCard(medication: med, color: .blue, timesText: "08:00 • 12:30 • 20:00")
-                .previewLayout(.sizeThatFits)
-                .padding()
-                .preferredColorScheme(.dark)
         }
     }
 }
