@@ -1,6 +1,8 @@
 # 💊 Medali - Smart Medication Tracker  
 *A project for SE4041 – Mobile Application Design and Development (Assignment 02)*
 
+<img src="https://github.com/kavindu-dilshan/Medali/blob/main/Medali/Medali.png" alt="Medali">
+
 Medali is an iOS application that helps users track their daily medications, receive timely reminders, log taken/skipped doses, and monitor their adherence over time. The app integrates **Core Data**, **Local Notifications**, and **HealthKit** to deliver a personalized medication-tracking experience.
 
 ---
